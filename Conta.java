@@ -17,7 +17,15 @@ public class Conta {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	public listarContas(){
+		if(Conta.size!0) {
+		for(Conta c: agencia ){
+		System.out.println(c);
+		}
+		}else {
+			System.out.println("Está agencia não possui conta");
+		}
+	}
 	
 	public Conta(Pessoa pessoa, long numConta, String dataAbertura, String dataEncerramento, int situacao, String senha,
 			double saldo, ArrayList<Movimento> movimento) {
