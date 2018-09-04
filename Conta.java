@@ -11,7 +11,7 @@ public class Conta {
 	private int situacao;
 	private String senha;
 	private double saldo;
-	private ArrayList<Movimento> movimentos;
+	private ArrayList<Movimento> movimentos = new ArrayList<>();
 	
 	public Conta() {
 		// TODO Auto-generated constructor stub

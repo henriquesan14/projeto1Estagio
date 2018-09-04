@@ -1,11 +1,12 @@
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class Agencia {
 	private long numero;
-	private ArrayList<Conta> contas;
+	private ArrayList<Conta> contas=new ArrayList<Conta>();
 	private Endereco endereco; 
 	
 	public Agencia() {
@@ -32,7 +33,7 @@ public class Agencia {
 	public void setNumero(long numero) {
 		this.numero = numero;
 	}
-	public ArrayList<Conta> getConta() {
+	public List<Conta> getConta() {
 		return contas;
 	}
 	public void setConta(ArrayList<Conta> conta) {
@@ -83,7 +84,7 @@ public class Agencia {
 				conta.setPessoa(pf);
 				conta.setSenha(senha);
 				conta.setSituacao(1);
-				contas.add(conta);
+				this.contas.add(conta);
 				break;
 			case 2:System.out.println("Qual seu nome? ");
 				String nome2=entrada.next();
