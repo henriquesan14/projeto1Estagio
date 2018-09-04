@@ -20,7 +20,7 @@ public class Conta {
 	public listarContas(){
 		if(Conta.size!0) {
 		for(Conta c: agencia ){
-		System.out.println(c);
+		System.out.println(c.toString());
 		}
 		}else {
 			System.out.println("Está agencia não possui conta");
