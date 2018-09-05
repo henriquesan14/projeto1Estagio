@@ -52,7 +52,7 @@ public class Agencia {
 		int opc = entrada.nextInt();
 		switch(opc){
 			case 1:System.out.println("Qual seu nome? ");
-				String nome=entrada.nextLine();
+				String nome=entrada.next();
 				entrada.nextLine();
 				
 				System.out.println("Qual sua renda? ");
@@ -62,6 +62,7 @@ public class Agencia {
 				System.out.println("Rua: ");
 				String rua=entrada.next();
 				entrada.nextLine();
+				
 				System.out.println("Número: ");
 				int numero=entrada.nextInt();
 				
@@ -138,7 +139,7 @@ public class Agencia {
 				Date date2=new Date();
 				SimpleDateFormat sdf2=new SimpleDateFormat("dd/MM/yyyy");
 				String data2=sdf2.format(date2);
-				conta2.setNumConta(1);
+				conta2.setNumConta(2);
 				conta2.setDataAbertura(data2);
 				conta2.setPessoa(pj);
 				conta2.setSenha(senha2);
@@ -148,5 +149,19 @@ public class Agencia {
 				
 			default: System.out.println("Opção inválida");cadastrarConta();break;
 		}
+	}
+	
+	public void listarContas(){
+		if(this.contas.size()>0){
+			for(Conta c: contas){
+				System.out.println(c);
+			}
+		}else{
+			System.out.println("Agência Não possui contas!");
+		}
+	}
+	
+	public void acessarConta(){
+		
 	}
 }

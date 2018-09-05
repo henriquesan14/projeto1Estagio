@@ -2,8 +2,15 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Conta {
+	
+	@Override
+	public String toString() {
+		return "Num�ro da Conta: " + numConta + "| Pessoa: " + pessoa.getNome() + "| Data de abertura: " + dataAbertura;
+	}
+
 	private Pessoa pessoa;
 	private long numConta;
 	private String dataAbertura;
@@ -11,21 +18,13 @@ public class Conta {
 	private int situacao;
 	private String senha;
 	private double saldo;
-	private ArrayList<Movimento> movimentos = new ArrayList<>();
+	private ArrayList<Movimento> movimentos = new ArrayList<Movimento>();
 	
 	public Conta() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public listarContas(){
-		if(Conta.size!0) {
-		for(Conta c: agencia ){
-		System.out.println(c.toString());
-		}
-		}else {
-			System.out.println("Está agencia não possui conta");
-		}
-	}
+	
 	
 	public Conta(Pessoa pessoa, long numConta, String dataAbertura, String dataEncerramento, int situacao, String senha,
 			double saldo, ArrayList<Movimento> movimento) {
@@ -100,7 +99,7 @@ public class Conta {
 			SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 			String data=sdf.format(date);
 			Date time=new Date();
-			SimpleDateFormat sdf2=new SimpleDateFormat("hh/mm/ss");
+			SimpleDateFormat sdf2=new SimpleDateFormat("hh:mm:ss");
 			String hora=sdf2.format(time);
 			Movimento m=new Movimento();
 			m.setDataMovimentacao(data);
@@ -120,7 +119,7 @@ public class Conta {
 			SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 			String data=sdf.format(date);
 			Date time=new Date();
-			SimpleDateFormat sdf2=new SimpleDateFormat("hh/mm/ss");
+			SimpleDateFormat sdf2=new SimpleDateFormat("hh:mm:ss");
 			String hora=sdf2.format(time);
 			Movimento m=new Movimento();
 			m.setDataMovimentacao(data);
@@ -141,7 +140,7 @@ public class Conta {
 			SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 			String data=sdf.format(date);
 			Date time=new Date();
-			SimpleDateFormat sdf2=new SimpleDateFormat("hh/mm/ss");
+			SimpleDateFormat sdf2=new SimpleDateFormat("hh:mm:ss");
 			String hora=sdf2.format(time);
 			Movimento m=new Movimento();
 			m.setDataMovimentacao(data);

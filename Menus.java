@@ -10,15 +10,19 @@ public class Menus {
 		Scanner entrada=new Scanner(System.in);
 		Agencia a=new Agencia();
 		int opc;
-		System.out.println("Gerenciamento de contas");
-		System.out.println("|1 - Cadastrar Conta");
-		System.out.println("|2 - Listar Conta");
-		System.out.println("|3 - Acessar uma Conta");
-		System.out.println("|4 - Sair");
-		opc=entrada.nextInt();
-		switch(opc){
-			case 1:a.cadastrarConta();System.out.println("Conta cadastrada!");break;
-		}
+		do{
+			System.out.println("Gerenciamento de contas");
+			System.out.println("|1 - Cadastrar Conta");
+			System.out.println("|2 - Listar Conta");
+			System.out.println("|3 - Acessar uma Conta");
+			System.out.println("|4 - Sair");
+			opc=entrada.nextInt();
+			switch(opc){
+				case 1:a.cadastrarConta();System.out.println("Conta cadastrada!");break;
+				case 2:a.listarContas();break;
+				default:System.out.println("Opção inválida"); menu();break;
+			}
+		}while(opc!=4);
 		
 	}
 		

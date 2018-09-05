@@ -1,5 +1,5 @@
 
-public class PessoaFisica extends Pessoa{
+public class PessoaFisica extends Pessoa {
 	private long cpf;
 	private long rg;
 	public long getCpf() {

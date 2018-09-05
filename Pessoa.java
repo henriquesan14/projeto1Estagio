@@ -16,6 +16,7 @@ public class Pessoa {
 		this.sitPessoa = sitPessoa;
 		this.endereco = endereco;
 	}
+	
 	public String getNome() {
 		return nome;
 	}
