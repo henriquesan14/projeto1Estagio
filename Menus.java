@@ -20,7 +20,9 @@ public class Menus {
 			switch(opc){
 				case 1:a.cadastrarConta();System.out.println("Conta cadastrada!");break;
 				case 2:a.listarContas();break;
-				default:System.out.println("OpÁ„o inv·lida"); menu();break;
+				case 3:a.acessarConta();break;
+				case 4:System.exit(0);
+				default:System.out.println("Op√ß√£o inv√°lida"); menu();break;
 			}
 		}while(opc!=4);
 		
