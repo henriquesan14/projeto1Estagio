@@ -58,12 +58,12 @@ public class Agencia {
 				System.out.println("Qual sua renda? ");
 				double renda=entrada.nextDouble();
 				
-				System.out.println("Digite seu endereÃ§o: ");
+				System.out.println("Digite seu endereço: ");
 				System.out.println("Rua: ");
 				String rua=entrada.next();
 				entrada.nextLine();
 				
-				System.out.println("NÃºmero: ");
+				System.out.println("Número: ");
 				int numero=entrada.nextInt();
 				
 				System.out.println("Bairro:  ");
@@ -107,12 +107,12 @@ public class Agencia {
 				System.out.println("Qual sua renda? ");
 				double renda2=entrada.nextDouble();
 				
-				System.out.println("Digite seu endereÃ§o: ");
+				System.out.println("Digite seu endereço: ");
 				System.out.println("Rua: ");
 				String rua2=entrada.next();
 				entrada.nextLine();
 				
-				System.out.println("NÃºmero: ");
+				System.out.println("Número: ");
 				int numero2=entrada.nextInt();
 				
 				System.out.println("Bairro:  ");
@@ -147,7 +147,7 @@ public class Agencia {
 				this.contas.add(conta2);
 				break;
 				
-			default: System.out.println("OpÃ§Ã£o invÃ¡lida");cadastrarConta();break;
+			default: System.out.println("Opção inválida");cadastrarConta();break;
 		}
 	}
 	
@@ -157,24 +157,21 @@ public class Agencia {
 				System.out.println(c);
 			}
 		}else{
-			System.out.println("AgÃªncia NÃ£o possui contas!");
+			System.out.println("Agência Não possui contas!");
 		}
 	}
 	
-		public void acessarConta(){
-		boolean encontrou = false;
-		System.out.println("Digite o nÃºmero da conta: ");
-		Scanner teclado = new Scanner(System.in);
-		long numConta = teclado.nextInt();
-		
-		for (Conta c : contas) {
-			if (c.getNumConta() == numConta) {
-				encontrou = true;
-				System.out.println("Conta encontrada com sucesso");
-				System.out.println(c);
+	public Conta acessarConta(){
+		Scanner entrada=new Scanner(System.in);
+		System.out.println("Informe número da conta: ");
+		int num=entrada.nextInt();
+		for(Conta c:contas){
+			if(c.getNumConta()==num){
+				return c;
 			}
 		}
-		if (!encontrou)
-			System.out.println("Conta nÃ£o encontrada");
+		return null;
+		
 	}
+	
 }

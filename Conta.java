@@ -6,11 +6,6 @@ import java.util.List;
 
 public class Conta {
 	
-	@Override
-	public String toString() {
-		return "Numéro da Conta: " + numConta + "| Pessoa: " + pessoa.getNome() + "| Data de abertura: " + dataAbertura;
-	}
-
 	private Pessoa pessoa;
 	private long numConta;
 	private String dataAbertura;
@@ -19,6 +14,11 @@ public class Conta {
 	private String senha;
 	private double saldo;
 	private ArrayList<Movimento> movimentos = new ArrayList<Movimento>();
+	
+	@Override
+	public String toString() {
+		return "Numéro da Conta: " + numConta + "| Pessoa: " + pessoa.getNome() + "| Saldo: " + saldo + "| Data de abertura: " + dataAbertura;
+	}
 	
 	public Conta() {
 		// TODO Auto-generated constructor stub

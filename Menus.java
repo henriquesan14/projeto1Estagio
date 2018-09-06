@@ -20,13 +20,72 @@ public class Menus {
 			switch(opc){
 				case 1:a.cadastrarConta();System.out.println("Conta cadastrada!");break;
 				case 2:a.listarContas();break;
-				case 3:a.acessarConta();break;
-				case 4:System.exit(0);
-				default:System.out.println("OpÃ§Ã£o invÃ¡lida"); menu();break;
-			}
-		}while(opc!=4);
+				case 3:Conta c=a.acessarConta();
+					    int opc2;
+							if(c!=null){
+							do{
+								System.out.println("Conta nº: "+c.getNumConta());
+								System.out.println("1-Realizar saque");
+								System.out.println("2-Realizar deposito");
+								System.out.println("3-Realizar transferência");
+								System.out.println("4-Extrato bancário");
+								System.out.println("5-Sair");
+								opc2=entrada.nextInt();
+								
+								switch(opc2){
+									case 1: 
+										System.out.println("Valor do saque: ");
+										double saque=entrada.nextDouble();
+										try {
+											c.sacar(saque);
+											System.out.println("Saque realizado");
+										} catch (SaldoNegativoException e) {
+											// TODO Auto-generated catch block
+											System.out.println(e.getMessage());
+										}
+										break;
+									case 2: 
+										System.out.println("Valor do deposito: ");
+										double deposito=entrada.nextDouble();
+										try {
+											c.depositar(deposito);
+											System.out.println("Deposito realizado");
+										} catch (ValorException e) {
+											// TODO Auto-generated catch block
+											System.out.println(e.getMessage());
+										}
+										break;
+									case 3: 
+										System.out.println("Valor da transferência: ");
+										double valor=entrada.nextDouble();
+										Conta conta_destino=a.acessarConta();
+										try {
+											c.transferir(valor,conta_destino);
+											System.out.println("Transferência realizada");
+										} catch (SaldoNegativoException e) {
+											// TODO Auto-generated catch block
+											System.out.println(e.getMessage());
+										}
+										break;
+									case 4:System.out.println("eak");
+										break;
+									case 5:System.out.println("Sistema Encerrado");
+									System.exit(0);break;
+									default: System.out.println("Opção inválida");break;
+								
+								} //fech switch2
+							}while(opc2!=5); //fech do while2
+							}else{ //fech if
+								System.out.println("Conta não existe");
+							}// fech else
+				
+				break;
+				default:System.out.println("Opção inválida"); menu();break;
+			}  //fech switch
+		}while(opc!=4); //fech do while
 		
-	}
+	} //fech metodo
+
 		
 		
 
