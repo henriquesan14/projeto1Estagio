@@ -1,6 +1,7 @@
 import java.util.Date;
 
 public class Movimento {
+	
 	private int tipo;
 	private String dataMovimentacao;
 	private String horaMovimentacao;
@@ -18,6 +19,12 @@ public class Movimento {
 		this.dataMovimentacao = dataMovimentacao;
 		this.horaMovimentacao = horaMovimentacao;
 		this.valMovimentado = valMovimentado;
+	}
+	
+	@Override
+	public String toString() {
+		return "Movimento| Tipo: " + tipo + " | Data de Movimentação: " + dataMovimentacao + " | Hora da Movimentacão: "
+				+ horaMovimentacao + "| Valor Movimentado: " + valMovimentado ;
 	}
 
 

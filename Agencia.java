@@ -2,6 +2,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Agencia {
@@ -48,6 +49,7 @@ public class Agencia {
 	
 	public void cadastrarConta(){
 		Scanner entrada=new Scanner(System.in);
+		Random n=new Random();
 		System.out.println("Digite 1-Pessoa Fisica e 2-Pessoa Juridica ");
 		int opc = entrada.nextInt();
 		switch(opc){
@@ -93,7 +95,6 @@ public class Agencia {
 				Date date=new Date();
 				SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 				String data=sdf.format(date);
-				conta.setNumConta(1);
 				conta.setDataAbertura(data);
 				conta.setPessoa(pf);
 				conta.setSenha(senha);
@@ -139,7 +140,6 @@ public class Agencia {
 				Date date2=new Date();
 				SimpleDateFormat sdf2=new SimpleDateFormat("dd/MM/yyyy");
 				String data2=sdf2.format(date2);
-				conta2.setNumConta(2);
 				conta2.setDataAbertura(data2);
 				conta2.setPessoa(pj);
 				conta2.setSenha(senha2);
@@ -173,5 +173,7 @@ public class Agencia {
 		return null;
 		
 	}
+	
+	
 	
 }
