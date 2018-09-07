@@ -7,21 +7,23 @@ import java.util.List;
 public class Conta {
 	
 	private Pessoa pessoa;
-	private long numConta;
+	private static int sequence = 1;
+	private  long numConta;
 	private String dataAbertura;
 	private String dataEncerramento;
 	private int situacao;
 	private String senha;
 	private double saldo;
-	private ArrayList<Movimento> movimentos = new ArrayList<Movimento>();
+	private  ArrayList<Movimento> movimentos = new ArrayList<Movimento>();
+	
 	
 	@Override
 	public String toString() {
-		return "Numéro da Conta: " + numConta + "| Pessoa: " + pessoa.getNome() + "| Saldo: " + saldo + "| Data de abertura: " + dataAbertura;
+		return "NumÃ©ro da Conta: " + numConta + "| Nome do cliente: " + pessoa.getNome() + "| Saldo: " + saldo + "| Data de abertura: " + dataAbertura;
 	}
 	
 	public Conta() {
-		// TODO Auto-generated constructor stub
+		this.numConta=sequence++;
 	}
 	
 	
@@ -90,10 +92,13 @@ public class Conta {
 		this.movimentos = movimento;
 	}
 	
-	public void sacar(double saque) throws SaldoNegativoException{
+	public void sacar(double saque) throws SaldoNegativoException, ValorException{
 		if(saque>this.saldo){
 			throw new SaldoNegativoException("Saldo insuficiente");
-		}else{
+		}else if(saque<=0){
+			throw new ValorException("Saque tem quer ser positivo");
+		}
+		else{
 			this.saldo-=saque;
 			Date date=new Date();
 			SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
@@ -130,10 +135,13 @@ public class Conta {
 		}	
 	}
 	
-	public void transferir(double valor,Conta conta) throws SaldoNegativoException{
+	public void transferir(double valor,Conta conta) throws SaldoNegativoException, ValorException{
 		if(valor>this.saldo){
 			throw new SaldoNegativoException("Saldo insuficiente");
-		}else{
+		}else if(valor<=0){
+			throw new ValorException("Valor tem quer positivo");
+		}
+		else{
 			conta.setSaldo(conta.getSaldo()+valor);
 			this.saldo-=valor;
 			Date date=new Date();
@@ -149,5 +157,9 @@ public class Conta {
 			m.setValMovimentado(valor);
 			this.movimentos.add(m);
 		}
+	}
+	
+	public void listarExtrato(){
+		
 	}
 }
