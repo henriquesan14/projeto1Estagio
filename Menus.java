@@ -19,10 +19,10 @@ public class Menus {
 			switch(opc){
 				case 1:a.cadastrarConta();System.out.println("Conta cadastrada!");break;
 				case 2:a.listarContas();break;
-				case 3:menu2();
+				case 3:menu2();break;
 				case 4:System.out.println("Sistema encerrado");
-						System.exit(0);
-				default:System.out.println("Opção inválida"); menu();break;
+						System.exit(0);break;
+				default:System.out.println("OpÃ§Ã£o invÃ¡lida"); menu();break;
 			}  //fech switch
 		}while(opc!=4); //fech do while
 		
@@ -34,11 +34,11 @@ public class Menus {
 	    int opc2;
 			if(c!=null){
 			do{
-				System.out.println("Conta nº: "+c.getNumConta());
+				System.out.println("Conta nÂº: "+c.getNumConta());
 				System.out.println("1-Realizar saque");
 				System.out.println("2-Realizar deposito");
-				System.out.println("3-Realizar transferência");
-				System.out.println("4-Extrato bancário");
+				System.out.println("3-Realizar transferÃªncia");
+				System.out.println("4-Extrato bancÃ¡rio");
 				System.out.println("5-Sair");
 				opc2=entrada.nextInt();
 				
@@ -72,7 +72,7 @@ public class Menus {
 						}
 						break;
 					case 3: 
-						System.out.println("Valor da transferência: ");
+						System.out.println("Valor da transferÃªncia: ");
 						double valor=entrada.nextDouble();
 						Conta conta_destino=a.acessarConta();
 						if(conta_destino!=null){
@@ -80,7 +80,7 @@ public class Menus {
 								try {
 									try {
 										c.transferir(valor,conta_destino);
-										System.out.println("Transferência realizada");
+										System.out.println("TransferÃªncia realizada");
 									} catch (ValorException e) {
 										// TODO Auto-generated catch block
 										System.out.println(e.getMessage());
@@ -91,22 +91,22 @@ public class Menus {
 									System.out.println(e.getMessage());
 								}
 							}else{
-								System.out.println("Transferência não pode ser feita na mesma conta!");
+								System.out.println("TransferÃªncia nÃ£o pode ser feita na mesma conta!");
 							}
 						}else{
-							System.out.println("Conta não existe!");
+							System.out.println("Conta nÃ£o existe!");
 						}
 						break;
 					case 4:c.listarExtrato();
 						break;
 					case 5:menu();
 						break;
-					default: System.out.println("Opção inválida");break;
+					default: System.out.println("OpÃ§Ã£o invÃ¡lida");break;
 				
 				} //fech switch2
 			}while(opc2!=5); //fech do while2
 			}else{ //fech if
-				System.out.println("Conta não existe");
+				System.out.println("Conta nÃ£o existe");
 			}// fech else
 
 	}
