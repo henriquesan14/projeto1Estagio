@@ -1,19 +1,18 @@
 
 public class Endereco {
+	//atributos
 	private String rua;
 	private int numero;
 	private String cidade;
 	private String bairro;
 	private long cep;
 	
-	public String getRua() {
-		return rua;
-	}
-	
+	//construtor vazio
 	public Endereco() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	//construtor com argd
 	public Endereco(String rua, int numero, String cidade, String bairro, long cep) {
 		super();
 		this.rua = rua;
@@ -22,6 +21,14 @@ public class Endereco {
 		this.bairro = bairro;
 		this.cep = cep;
 	}
+	
+	//getters e setters
+	public String getRua() {
+		return rua;
+	}
+	
+	
+	
 	public void setRua(String rua) {
 		this.rua = rua;
 	}

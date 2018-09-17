@@ -1,14 +1,17 @@
 
 public class Pessoa {
+	//atributos
 	private String nome;
 	private double rendaPessoa;
 	private int sitPessoa;
 	private Endereco endereco;
 	
+	//construtor vazio
 	public Pessoa() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	//construtor com args
 	public Pessoa(String nome, double rendaPessoa, int sitPessoa, Endereco endereco) {
 		super();
 		this.nome = nome;
@@ -17,6 +20,7 @@ public class Pessoa {
 		this.endereco = endereco;
 	}
 	
+	//getters e setters
 	public String getNome() {
 		return nome;
 	}

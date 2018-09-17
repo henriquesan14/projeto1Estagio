@@ -6,18 +6,18 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Agencia {
+	//atributos
 	private long numero;
-	private ArrayList<Conta> contas=new ArrayList<Conta>();
+	private List<Conta> contas=new ArrayList<Conta>();
 	private Endereco endereco; 
 	
+	//construtor vazio
 	public Agencia() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	
-	
-	public Agencia(long numero, ArrayList<Conta> conta, Endereco endereco) {
+	//construtor com args
+	public Agencia(long numero, List<Conta> conta, Endereco endereco) {
 		super();
 		this.numero = numero;
 		this.contas = conta;
@@ -26,8 +26,7 @@ public class Agencia {
 
 
 
-
-
+	//getters e setters
 	public long getNumero() {
 		return numero;
 	}
@@ -37,7 +36,7 @@ public class Agencia {
 	public List<Conta> getConta() {
 		return contas;
 	}
-	public void setConta(ArrayList<Conta> conta) {
+	public void setConta(List<Conta> conta) {
 		this.contas = conta;
 	}
 	public Endereco getEndereco() {
@@ -47,13 +46,13 @@ public class Agencia {
 		this.endereco = endereco;
 	}
 	
+	//metodo pra cadastrar conta na agência
 	public void cadastrarConta(){
 		Scanner entrada=new Scanner(System.in);
-		Random n=new Random();
 		System.out.println("Digite 1-Pessoa Fisica e 2-Pessoa Juridica ");
 		int opc = entrada.nextInt();
 		switch(opc){
-			case 1:System.out.println("Qual seu nome? ");
+			case 1:System.out.println("Qual seu nome? "); //case1 cria objeto de PessoaFisica
 				String nome=entrada.next();
 				entrada.nextLine();
 				
@@ -89,19 +88,19 @@ public class Agencia {
 				String senha=entrada.next();
 				entrada.nextLine();
 				
-				Endereco endereco=new Endereco(rua,numero,bairro,cidade,cep);
-				PessoaFisica pf = new PessoaFisica(nome,renda,1,endereco,cpf,rg);
+				Endereco endereco=new Endereco(rua,numero,bairro,cidade,cep); //instanciando endereço com args
+				PessoaFisica pf = new PessoaFisica(nome,renda,1,endereco,cpf,rg); //instanciando P Fisica com args
 				Conta conta=new Conta();
 				Date date=new Date();
-				SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+				SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy"); // formata a data
 				String data=sdf.format(date);
 				conta.setDataAbertura(data);
 				conta.setPessoa(pf);
 				conta.setSenha(senha);
 				conta.setSituacao(1);
-				this.contas.add(conta);
+				this.contas.add(conta); //adiciona o objeto conta ao array de contas
 				break;
-			case 2:System.out.println("Qual seu nome? ");
+			case 2:System.out.println("Qual seu nome? "); //case2 cria objeto de PessoaJuridica
 				String nome2=entrada.next();
 				entrada.nextLine();
 				
@@ -146,15 +145,15 @@ public class Agencia {
 				conta2.setSituacao(1);
 				this.contas.add(conta2);
 				break;
-				
+			//caso digite um valor inválido, chama o metódo de cadastrarConta de novo
 			default: System.out.println("Opção inválida");cadastrarConta();break;
 		}
 	}
 	
 	public void listarContas(){
-		if(this.contas.size()>0){
+		if(this.contas.size()>0){ //se tamanho do array de contas for maior que zero percorre o array
 			for(Conta c: contas){
-				System.out.println(c);
+				System.out.println(c); //printa objeto conta com toString sobrescrito
 			}
 		}else{
 			System.out.println("Agência Não possui contas!");
@@ -164,15 +163,16 @@ public class Agencia {
 	public Conta acessarConta(){
 		Scanner entrada=new Scanner(System.in);
 		System.out.println("Informe número da conta: ");
-		int num=entrada.nextInt();
+		int num=entrada.nextInt(); 
 		for(Conta c:contas){
-			if(c.getNumConta()==num){
-				return c;
+			if(c.getNumConta()==num){ //verifica se possui uma conta com numero digitado
+				return c;  //retorna o objeto se for true
 			}
 		}
-		return null;
+		return null; //senão retorna nulo
 		
 	}
+	
 	
 	
 	
